@@ -42,5 +42,5 @@ spec:
         - timeo=600
     storageClass:
       defaultClass: true
-      provisionerName: k8s-sigs.io/nfs-subdir-external-provisioner
-      pathPattern: '${.PVC.namespace}/${.PVC.annotations.nfs.io/storage-path}'
+      provisionerName: nfs-subdir-external-provisioner
+      # pathPattern: '${.PVC.namespace}-${.PVC.name}'
