@@ -42,5 +42,5 @@ spec:
         - timeo=600
     storageClass:
       defaultClass: true
-      provisionerName: nfs-subdir-external-provisioner
+      # provisionerName: nfs-subdir-external-provisioner
       # pathPattern: '${.PVC.namespace}-${.PVC.name}'
