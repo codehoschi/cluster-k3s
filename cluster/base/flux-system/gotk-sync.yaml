@@ -8,7 +8,7 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  url: git@github.com:CodeHoschi/cluster-k3s.git
+  url: https://github.com/CodeHoschi/cluster-k3s.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
