@@ -1,26 +1,34 @@
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: selfsigned-issuer
-  namespace: sandbox
-spec:
-  selfSigned: {}
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Issuer
+# metadata:
+#   name: selfsigned-issuer
+#   namespace: sandbox
+# spec:
+#   selfSigned: {}
+
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: selfsigned-crt
+#   namespace: sandbox
+# spec:
+#   secretName: tls-secret
+#   duration: 170000h
+#   renewBefore: 72h
+#   issuerRef:
+#     kind: Issuer
+#     name: selfsigned-issuer
+#   commonName: ${SECRET_DOMAIN}
+#   isCA: true
+#   dnsNames:
+#     - ${SECRET_DOMAIN}
 
 ---
 apiVersion: cert-manager.io/v1
-kind: Certificate
+kind: ClusterIssuer
 metadata:
-  name: selfsigned-crt
-  namespace: sandbox
+  name: selfsigned-cluster-issuer
 spec:
-  secretName: tls-secret
-  duration: 170000h
-  renewBefore: 72h
-  issuerRef:
-    kind: Issuer
-    name: selfsigned-issuer
-  commonName: ${SECRET_DOMAIN}
-  isCA: true
-  dnsNames:
-    - ${SECRET_DOMAIN}
+  selfSigned: {}
