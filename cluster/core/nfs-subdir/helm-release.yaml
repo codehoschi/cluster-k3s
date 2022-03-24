@@ -24,23 +24,23 @@ spec:
       retries: 3
   values:
     image:
-      repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
+      repository: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner
       tag: v4.0.2
     nfs:
       server: 10.0.10.10
       path: /volume1/kubedata
-      mountOptions:
-        - nfsvers=4.2
-        - hard
-        - noac
-        - nocto
-        - noacl
-        - rsize=8192
-        - wsize=8192
-        - async
-        - retrans=3
-        - timeo=600
+      # mountOptions:
+      #   - nfsvers=4.2
+      #   - hard
+      #   - noac
+      #   - nocto
+      #   - noacl
+      #   - rsize=8192
+      #   - wsize=8192
+      #   - async
+      #   - retrans=3
+      #   - timeo=600
     storageClass:
       defaultClass: true
-      # provisionerName: nfs-subdir-external-provisioner
+      #provisionerName: nfs-subdir-external-provisioner
       # pathPattern: '${.PVC.namespace}-${.PVC.name}'
