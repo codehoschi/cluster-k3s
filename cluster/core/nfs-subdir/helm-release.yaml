@@ -27,7 +27,7 @@ spec:
       repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
       tag: v4.0.2
     nfs:
-      server: nas.${SECRET_DOMAIN}
+      server: 'nas.${SECRET_DOMAIN}'
       path: /volume1/kubedata
       mountOptions:
         - nfsvers=4.2
