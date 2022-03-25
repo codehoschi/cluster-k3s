@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - echo-server
   - hajimari
+  - git-repo.yaml
   - docker-registry
   - docker-registry-browser
