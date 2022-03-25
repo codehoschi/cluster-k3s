@@ -15,13 +15,12 @@ spec:
         name: nfs-subdir-external-provisioner-charts
         namespace: flux-system
       interval: 1h
-  # install:
-  #   createNamespace: true
-  #   remediation:
-  #     retries: 3
-  # upgrade:
-  #   remediation:
-  #     retries: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
   values:
     image:
       repository: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner
@@ -29,18 +28,17 @@ spec:
     nfs:
       server: 10.0.10.10
       path: /volume1/kubedata
-      # mountOptions:
-      #   - nfsvers=4.2
-      #   - hard
-      #   - noac
-      #   - nocto
-      #   - noacl
-      #   - rsize=8192
-      #   - wsize=8192
-      #   - async
-      #   - retrans=3
-      #   - timeo=600
+      mountOptions:
+        - nfsvers=4.2
+        - hard
+        - noac
+        - nocto
+        - noacl
+        - rsize=8192
+        - wsize=8192
+        - async
+        - retrans=3
+        - timeo=600
     storageClass:
       defaultClass: true
-      #provisionerName: nfs-subdir-external-provisioner
-      # pathPattern: '${.PVC.namespace}-${.PVC.name}'
+      # pathPattern: '${.PVC.namespace}-${.PVC.name}' # flux cannot resolve variable error
