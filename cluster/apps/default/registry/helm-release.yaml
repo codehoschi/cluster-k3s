@@ -11,8 +11,8 @@ spec:
       chart: docker-registry
       version: 2.1.0
       sourceRef:
-        kind: HelmRepository
-        name: docker-regitry-charts
+        kind: GitRepository
+        name: https://github.com/twuni/docker-registry.helm.git
         namespace: flux-system
       interval: 5m
   install:
@@ -27,28 +27,26 @@ spec:
       repository: registry
       tag: 2.8.1
     persistence:
-      data:
-        enabled: true
-        size: 10Gi
-        storageClass: nfs-client
+      enabled: true
+      size: 10Gi
+      storageClass: nfs-client
     ingress:
-      main:
-        enabled: true
-        className: 'traefik'
-        annotations:
-          # cert-manager.io/cluster-issuer: "letsencrypt-production"
-          cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
-          hajimari.io/enable: 'true'
-          hajimari.io/icon: 'docker'
-          traefik.ingress.kubernetes.io/router.entrypoints: 'websecure'
-        hosts:
-          - host: 'registry.${SECRET_DOMAIN}'
-            paths:
-              - '/'
-        tls:
-          - secretName: docker-regitry-tls
-            hosts:
-              - 'registry.${SECRET_DOMAIN}'
+      enabled: true
+      className: 'traefik'
+      annotations:
+        # cert-manager.io/cluster-issuer: "letsencrypt-production"
+        cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
+        hajimari.io/enable: 'true'
+        hajimari.io/icon: 'docker'
+        traefik.ingress.kubernetes.io/router.entrypoints: 'websecure'
+      hosts:
+        - host: 'registry.${SECRET_DOMAIN}'
+          paths:
+            - '/'
+      tls:
+        - secretName: docker-regitry-tls
+          hosts:
+            - 'registry.${SECRET_DOMAIN}'
     resources:
       requests:
         cpu: 50m
