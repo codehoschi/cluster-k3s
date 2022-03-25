@@ -5,7 +5,7 @@ metadata:
   name: codehoschi-charts
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 5m
   url: https://github.com/CodeHoschi/helm-charts.git
   ref:
     branch: master
