@@ -8,11 +8,11 @@ spec:
   interval: 1h
   chart:
     spec:
-      chart: docker-registry
+      chart: ./charts/docker-registry
       version: 1.9.9
       sourceRef:
         kind: GitRepository
-        name: docker-registry-repo
+        name: codehoschi-charts
         namespace: flux-system
       interval: 1h
   install:
@@ -43,9 +43,9 @@ spec:
         - host: 'registry.${SECRET_DOMAIN}'
       path: '/'
       tls:
-        - secretName: docker-regitry-tls
-          hosts:
+        - hosts:
             - 'registry.${SECRET_DOMAIN}'
+          secretName: docker-regitry-tls
     resources:
       requests:
         cpu: 50m
