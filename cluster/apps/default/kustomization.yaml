@@ -6,4 +6,5 @@ resources:
   - git-repo.yaml
   - docker-registry
   - btb-api
+  - btb-ui
   # - docker-registry-browser

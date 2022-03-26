@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: api
+  name: btb-ui
   namespace: default
 spec:
   interval: 1m
   chart:
     spec:
-      chart: ./charts/btb/api
+      chart: ./charts/btb/ui
       version: 1.0.0
       sourceRef:
         kind: GitRepository
@@ -37,17 +37,17 @@ spec:
         # cert-manager.io/cluster-issuer: "letsencrypt-production"
         cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
         hajimari.io/enable: 'true'
-        hajimari.io/icon: 'api'
+        hajimari.io/icon: 'stack-exchange'
         traefik.ingress.kubernetes.io/router.entrypoints: 'websecure'
       hosts:
         # - host: 'registry.${SECRET_DOMAIN}'
-        - 'btb-api.kube.lmwpva.de'
+        - 'btb.kube.lmwpva.de'
       path: '/'
       tls:
         - hosts:
             # - 'registry.${SECRET_DOMAIN}'
-            - 'btb-api.kube.lmwpva.de'
-          secretName: btb-api-tls
+            - 'btb.kube.lmwpva.de'
+          secretName: btb-ui-tls
     resources:
       requests:
         cpu: 50m
