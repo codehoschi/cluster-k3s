@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ./charts/docker-registry
-      version: 1.9.9
+      version: 2.0.0
       sourceRef:
         kind: GitRepository
         name: codehoschi-charts

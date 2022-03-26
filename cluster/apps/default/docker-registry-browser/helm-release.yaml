@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ./charts/docker-registry-browser
-      version: 0.1.1
+      version: 0.1.2
       sourceRef:
         kind: GitRepository
         name: codehoschi-charts
