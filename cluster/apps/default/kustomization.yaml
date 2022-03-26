@@ -5,4 +5,5 @@ resources:
   - hajimari
   - git-repo.yaml
   - docker-registry
+  - btb-api
   # - docker-registry-browser
