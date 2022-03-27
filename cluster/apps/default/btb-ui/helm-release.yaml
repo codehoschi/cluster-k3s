@@ -25,9 +25,9 @@ spec:
   values:
     image:
       # repository: registry
-      tag: v0.1.10
+      tag: v0.1.12
       env:
-        BACKEND: 'api-btb-api'
+        BACKEND: 'btb-api'
     # persistence:
     #   enabled: true
     #   size: 10Gi
