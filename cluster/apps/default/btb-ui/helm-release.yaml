@@ -25,7 +25,7 @@ spec:
   values:
     image:
       # repository: registry
-      tag: v0.1.9
+      tag: v0.1.10
       env:
         BACKEND: 'api-btb-api'
     # persistence:
