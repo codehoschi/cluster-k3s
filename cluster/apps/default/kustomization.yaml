@@ -4,7 +4,7 @@ resources:
   #- echo-server
   - repos
   - hajimari
-  #- paperless
+  - paperless
   #- docker-registry
   #- docker-registry-browser
   #- btb-api
