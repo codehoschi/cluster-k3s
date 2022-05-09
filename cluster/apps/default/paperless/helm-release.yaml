@@ -52,7 +52,7 @@ spec:
         size: 1Gi
         storageClass: nfs-client
     env:
-      PAPERLESS_OCR_LANGUAGE: ger
+      PAPERLESS_OCR_LANGUAGE: deu
     ingress:
       main:
         enabled: true
