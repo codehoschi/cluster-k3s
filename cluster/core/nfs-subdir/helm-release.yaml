@@ -29,7 +29,7 @@ spec:
       server: 10.0.10.10
       path: /volume1/kubedata
       mountOptions:
-        - nfsvers=4.2
+        - nfsvers=4
         - hard
         - noac
         - nocto
