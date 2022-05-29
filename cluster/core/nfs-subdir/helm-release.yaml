@@ -40,5 +40,5 @@ spec:
         - retrans=3
         - timeo=600
     storageClass:
-      defaultClass: false
+      # defaultClass: false
       # pathPattern: '${.PVC.namespace}-${.PVC.name}' # flux cannot resolve variable error
