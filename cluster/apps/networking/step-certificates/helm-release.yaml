@@ -49,22 +49,22 @@ spec:
               dataSource: /home/step/db
             authority:
               provisioners:
-                - {
-                  'type': 'JWK',
-                  'name': 'ca.k3s@lmwpva.de',
-                  'key':
-                    {
-                      'use': 'sig',
-                      'kty': 'EC',
-                      'kid': 'vnYAypSfG9EN29UwQfy6BQ2pvmx0tNyeKtjpXWCnv-A',
-                      'crv': 'P-256',
-                      'alg': 'ES256',
-                      'x': 'I01jsSfY02t-J32PD0N1hAcRynPKJWPekVIjZ6hucL0',
-                      'y': 'RbFPbqeCJuzc78CpvbMctL7BL-utVVVy0ig9PEbPbH0',
-                    },
-                  'encryptedKey': 'eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjEwMDAwMCwicDJzIjoiMUhab0VMTHpxWGpOSnl3X1ZmZTBJUSJ9.sH0EwDGcWsjICOW8eX0aXY1kbTVdqF0fvQcyr-jvNdkmgtbMN2QPWw._rhskYRd_Jt2vzmV.05b-N0sDt1Iz5avCpps2rAwrEMWqlgU2b7gInTcS4QKSBA7_svUtJ4a06_mbvFDprxd7W_sR9aI3XXUl6l_NlwKG3diDyWRgj_PaY1YPV_jCTSOsWnZjILLKsRG91WeMOwoUVZS1e5aIcGfXJeHVSxcVnwLxl9C5jcT4vkOyz1nIZPuA3fldlcp2qp98ERnV0tAlxvDHdoR02WywBmbYccnsUmk4_S1GK0eNpY6NF31Hev92EdiugPAq-WXOIUn-7dwDDh9RBRElWutrFSlKaJ8bqlquBJnvnDxFGo7MeUmqO8gvi2Lv_AvYGY_hz6eigxtYuYYOnEHOj89f3ZA.0ovlsscTF30A0Tev0WhA2w',
-                  'options': { 'x509': {}, 'ssh': {} },
-                }
+                # - {
+                #     'type': 'JWK',
+                #     'name': 'ca.k3s@lmwpva.de',
+                #     'key':
+                #       {
+                #         'use': 'sig',
+                #         'kty': 'EC',
+                #         'kid': 'vnYAypSfG9EN29UwQfy6BQ2pvmx0tNyeKtjpXWCnv-A',
+                #         'crv': 'P-256',
+                #         'alg': 'ES256',
+                #         'x': 'I01jsSfY02t-J32PD0N1hAcRynPKJWPekVIjZ6hucL0',
+                #         'y': 'RbFPbqeCJuzc78CpvbMctL7BL-utVVVy0ig9PEbPbH0',
+                #       },
+                #     'encryptedKey': 'eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjEwMDAwMCwicDJzIjoiMUhab0VMTHpxWGpOSnl3X1ZmZTBJUSJ9.sH0EwDGcWsjICOW8eX0aXY1kbTVdqF0fvQcyr-jvNdkmgtbMN2QPWw._rhskYRd_Jt2vzmV.05b-N0sDt1Iz5avCpps2rAwrEMWqlgU2b7gInTcS4QKSBA7_svUtJ4a06_mbvFDprxd7W_sR9aI3XXUl6l_NlwKG3diDyWRgj_PaY1YPV_jCTSOsWnZjILLKsRG91WeMOwoUVZS1e5aIcGfXJeHVSxcVnwLxl9C5jcT4vkOyz1nIZPuA3fldlcp2qp98ERnV0tAlxvDHdoR02WywBmbYccnsUmk4_S1GK0eNpY6NF31Hev92EdiugPAq-WXOIUn-7dwDDh9RBRElWutrFSlKaJ8bqlquBJnvnDxFGo7MeUmqO8gvi2Lv_AvYGY_hz6eigxtYuYYOnEHOj89f3ZA.0ovlsscTF30A0Tev0WhA2w',
+                #     'options': { 'x509': {}, 'ssh': {} },
+                #   }
                 - { 'type': 'ACME', 'name': 'acme' }
             tls:
               cipherSuites:
