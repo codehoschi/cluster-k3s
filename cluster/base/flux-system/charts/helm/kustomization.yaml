@@ -24,4 +24,4 @@ resources:
   - stakater-charts.yaml
   - traefik-charts.yaml
   - weaveworks-kured-charts.yaml
-  - smallstep-charts.yaml
+  # - smallstep-charts.yaml
