@@ -90,8 +90,8 @@ spec:
       secrets:
         # ca_password contains the password used to encrypt x509.intermediate_ca_key, ssh.host_ca_key and ssh.user_ca_key
         # This value must be base64 encoded.
-        # ca_password:
-        # provisioner_password:
+        ca_password: ${CA_PASSWORD}
+        provisioner_password: ${CA_PROVISIONER_PASSWORD}
         x509:
           # intermediate_ca_key contains the contents of your encrypted intermediate CA key
           intermediate_ca_key: ${CA_INTERMEDIATE_KEY}
