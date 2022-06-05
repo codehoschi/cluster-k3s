@@ -84,34 +84,10 @@ spec:
       # optionally the SSH host and user public keys
       certificates:
         # intermediate_ca contains the text of the intermediate CA Certificate
-        intermediate_ca: |
-          -----BEGIN CERTIFICATE-----
-          MIIB3DCCAYOgAwIBAgIRALqX7Au+6YseM9K16aaMAw4wCgYIKoZIzj0EAwIwODEW
-          MBQGA1UEChMNU21hbGxzdGVwIGszczEeMBwGA1UEAxMVU21hbGxzdGVwIGszcyBS
-          b290IENBMB4XDTIyMDUyNjExMzU0N1oXDTMyMDUyMzExMzU0N1owQDEWMBQGA1UE
-          ChMNU21hbGxzdGVwIGszczEmMCQGA1UEAxMdU21hbGxzdGVwIGszcyBJbnRlcm1l
-          ZGlhdGUgQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASzpgU1TBvl2ailEczH
-          1Ov0OfabuijSiHblna4EBIuB7yZQ0AxpX4/fcunhAZ+qkFU5R6nZG1RMGvFKMT4s
-          Rmkzo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNV
-          HQ4EFgQUMTE0x0aouUeugfO0cnkkZT0MbFgwHwYDVR0jBBgwFoAUr90c/R8FAvHL
-          HmpPwbEjADkrN90wCgYIKoZIzj0EAwIDRwAwRAIgRwcDk1CuUS/v6gAKwmWR/tAf
-          r2w1ZzZ3Fg/e8b5XQ/sCIHWNnxb5H/6zuKMBXUsbVxPgOruQRyfINNuRWom8ljgH
-          -----END CERTIFICATE-----
+        intermediate_ca: ${CA_INTERMEDIATE_CERT}
 
         # root_ca contains the text of the root CA Certificate
-        root_ca: |
-          -----BEGIN CERTIFICATE-----
-          MIIBszCCAVmgAwIBAgIQZpnPVDGo5WKMGX6XaHFInDAKBggqhkjOPQQDAjA4MRYw
-          FAYDVQQKEw1TbWFsbHN0ZXAgazNzMR4wHAYDVQQDExVTbWFsbHN0ZXAgazNzIFJv
-          b3QgQ0EwHhcNMjIwNTI2MTEzNTQ2WhcNMzIwNTIzMTEzNTQ2WjA4MRYwFAYDVQQK
-          Ew1TbWFsbHN0ZXAgazNzMR4wHAYDVQQDExVTbWFsbHN0ZXAgazNzIFJvb3QgQ0Ew
-          WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARGIAROWJ/GdfbHUcIdaQv8DBXZyMET
-          VB3L0akxq8aEB9HNYGNDgvFy4LHsTzdXPTceXWPHo+zA4xC7lxxYcd3io0UwQzAO
-          BgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUr90c
-          /R8FAvHLHmpPwbEjADkrN90wCgYIKoZIzj0EAwIDSAAwRQIhAKhtsI2wKZvF7ZFO
-          Ux6HrcHm2uPeXQF4swKb92RsdJpiAiAxJLzIvO8TBo/iaXUmqvuP0LRKNEiHFhNx
-          gKjOBrqfrQ==
-          -----END CERTIFICATE-----
+        root_ca: ${CA_ROOT_CERT}
 
       # Secrets contains the root and intermediate keys and optionally the SSH
       # private keys
