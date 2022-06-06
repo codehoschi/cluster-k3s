@@ -5,4 +5,5 @@ resources:
   - self-signed.yaml
   # - letsencrypt-production.yaml
   # - letsencrypt-staging.yaml
+  - smallstep-acme.yaml
   - secret.sops.yaml
