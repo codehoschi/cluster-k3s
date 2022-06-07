@@ -4,4 +4,4 @@ resources:
   - config-pvc.yaml
   - internal-ca.yaml
   - helm-release.yaml
-  - secret.sops.yaml
+  - secrets.sops.yaml
