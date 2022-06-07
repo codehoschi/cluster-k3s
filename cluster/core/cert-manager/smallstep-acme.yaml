@@ -6,21 +6,10 @@ metadata:
 spec:
   acme:
     email: '${SECRET_ACME_EMAIL}'
-    # server: https://step-certificates.default.svc.cluster.local/acme/acme/directory
-    server: https://step-certificates.default.svc/acme/acme/directory
+    server: https://step-certificates.networking.svc/acme/acme/directory
     privateKeySecretRef:
       name: acme-issuer-account-key
     solvers:
-      # - dns01:
-      #     cloudDNS:
-      #       # Your Google Cloud Platform project ID:
-      #       project: step-cas-test
-      #       # Your Google CloudDNS zone name we will use for DNS01 challenges:
-      #       hostedZoneName: step-cas-internal
-      #       serviceAccountSecretRef:
-      #         name: clouddns-dns01-solver-svc-acct
-      #         key: key.json
       - http01:
           ingress:
-            class: nginx
-            # class: traefik
+            class: traefik

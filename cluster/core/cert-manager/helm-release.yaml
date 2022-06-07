@@ -26,10 +26,13 @@ spec:
     webhook:
       enabled: true
     extraArgs:
+      - --v=2
+      - --cluster-resource-namespace=$(POD_NAMESPACE)
+      - --leader-election-namespace=kube-system
       - --dns01-recursive-nameservers=10.0.0.1:53,1.1.1.1:53,9.9.9.9:53
-      - --dns01-recursive-nameservers-only
+      # - --dns01-recursive-nameservers-only
     replicaCount: 1
-    podDnsPolicy: 'None'
+    podDnsPolicy: 'ClusterFirst'
     podDnsConfig:
       nameservers:
         - '10.0.0.1'
