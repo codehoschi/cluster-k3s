@@ -87,9 +87,9 @@ spec:
           # If supplied, this should be encrypted using a unique password that is not used for encrypting
           # the intermediate_ca_key, ssh.host_ca_key or ssh.user_ca_key.
           root_ca_key: ${STEP_ROOT_CA_KEY}
-    resources:
-      requests:
-        memory: 100Mi
-        cpu: 500m
-      limits:
-        memory: 500Mi
+    # resources:
+    #   requests:
+    #     memory: 100Mi
+    #     cpu: 500m
+    #   limits:
+    #     memory: 500Mi
