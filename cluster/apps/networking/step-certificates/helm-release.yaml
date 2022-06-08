@@ -52,22 +52,6 @@ spec:
               dataSource: /home/step/db
             authority:
               provisioners:
-                - {
-                  'type': 'JWK',
-                  'name': 'defaultProvisioner',
-                  'key':
-                    {
-                      'use': 'sig',
-                      'kty': 'EC',
-                      'kid': 'QNZWRbXVvyd8_QKTqkfPYSSynyaUDsieLS9x_uetNXA',
-                      'crv': 'P-256',
-                      'alg': 'ES256',
-                      'x': 'TT8qByyp04C3op98lTeEIHtzUIXTZ395vgCQ1ldu_LA',
-                      'y': 'nvIzNJ15prWFjSJK0hRDvdnSOkQhHqOoLhkwADOZmHc',
-                    },
-                  'encryptedKey': 'eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjEwMDAwMCwicDJzIjoidzd4UDhrMC1yc2h5TUpGTHJFQnZIZyJ9.GOnCR6JaF2zWn2Xph9s5kA9mQzJflmpQJCf4Y62zdxCogKk--MrLDw.qaa8rnzcReldFs5x.5Kfo-LBa_iUVLVxWPsY40y1QUG7djyz4PoLZvuLgLW64_sjkLDGiBkDCIKJmvdyelyswXWFKoCt7_Wnyt-5plZKLfXOfzRJWqKaYMWH452nruu1RQe8MnE1U3uhIRu6715nGA9Wz1J9DbC5qTFfftmAgxCVA_JYr9ni2z6P0DJRq9sXnAcaHPfPnUW1AqL2rQuq5HDzKp0lhd3ycd04VNfJpHUEF8mI2Ih-F3lGjE9NLM6rh0GN_Qz5Vgs3r_MFTLarvxDduyZ2Ajrnh2Bq60tOOvvuJCYbKesvU95yxRCK9aCAq4QpKN_xeC8PRoS7v7ipx8pN9xtTr-qS7xUc.cMcDvj0va01kqxUdvc2clA',
-                  'options': { 'x509': {}, 'ssh': {} },
-                }
                 - { 'type': 'ACME', 'name': 'acme' }
             tls:
               cipherSuites:
@@ -103,9 +87,9 @@ spec:
           # If supplied, this should be encrypted using a unique password that is not used for encrypting
           # the intermediate_ca_key, ssh.host_ca_key or ssh.user_ca_key.
           root_ca_key: '${STEP_ROOT_CA_KEY}'
-# resources:
-#   requests:
-#     memory: 100Mi
-#     cpu: 500m
-#   limits:
-#     memory: 500Mi
+    # resources:
+    #   requests:
+    #     memory: 100Mi
+    #     cpu: 500m
+    #   limits:
+    #     memory: 500Mi
