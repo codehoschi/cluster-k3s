@@ -69,9 +69,11 @@ spec:
       # optionally the SSH host and user public keys
       certificates:
         # intermediate_ca contains the text of the intermediate CA Certificate
-        intermediate_ca: '${STEP_INTERMEDIATE_CA}'
+        intermediate_ca: |
+          ${STEP_INTERMEDIATE_CA}
         # root_ca contains the text of the root CA Certificate
-        root_ca: '${STEP_ROOT_CA}'
+        root_ca: |
+          ${STEP_ROOT_CA}
       # Secrets contains the root and intermediate keys and optionally the SSH
       # private keys
       secrets:
