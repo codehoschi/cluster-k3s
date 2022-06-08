@@ -83,12 +83,14 @@ spec:
         provisioner_password: '${STEP_PROVISIONER_PASSWORD}'
         x509:
           # intermediate_ca_key contains the contents of your encrypted intermediate CA key
-          intermediate_ca_key: '${STEP_INTERMEDIATE_CA_KEY}'
+          intermediate_ca_key: |
+            ${STEP_INTERMEDIATE_CA_KEY}
           # root_ca_key contains the contents of your encrypted root CA key
           # Note that this value can be omitted without impacting the functionality of step-certificates
           # If supplied, this should be encrypted using a unique password that is not used for encrypting
           # the intermediate_ca_key, ssh.host_ca_key or ssh.user_ca_key.
-          root_ca_key: '${STEP_ROOT_CA_KEY}'
+          root_ca_key: |
+            ${STEP_ROOT_CA_KEY}
     # resources:
     #   requests:
     #     memory: 100Mi
