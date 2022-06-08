@@ -6,4 +6,5 @@ resources:
   # - letsencrypt-production.yaml
   # - letsencrypt-staging.yaml
   - smallstep-acme.yaml
+  - internal-ca.yaml
   - secret.sops.yaml
