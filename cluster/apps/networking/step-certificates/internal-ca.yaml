@@ -7,4 +7,4 @@ metadata:
   resourceVersion: '9978'
   selfLink: /api/v1/namespaces/cert-manager/configmaps/ca-pemstore
 data:
-  ca-certificates.crt: '${STEP_ROOT_CA}'
+  ca-certificates.crt: ${STEP_ROOT_CA}
