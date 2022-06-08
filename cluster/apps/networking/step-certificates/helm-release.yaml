@@ -44,7 +44,7 @@ spec:
             address: :9000
             dnsNames:
               - step-certificates.networking.svc
-              - ca.${SECRET_DOMAIN}
+              - 'ca.${SECRET_DOMAIN}'
             logger:
               format: json
             db:
@@ -69,24 +69,24 @@ spec:
       # optionally the SSH host and user public keys
       certificates:
         # intermediate_ca contains the text of the intermediate CA Certificate
-        intermediate_ca: ${STEP_INTERMEDIATE_CA}
+        intermediate_ca: '${STEP_INTERMEDIATE_CA}'
         # root_ca contains the text of the root CA Certificate
-        root_ca: ${STEP_ROOT_CA}
+        root_ca: '${STEP_ROOT_CA}'
       # Secrets contains the root and intermediate keys and optionally the SSH
       # private keys
       secrets:
         # ca_password contains the password used to encrypt x509.intermediate_ca_key, ssh.host_ca_key and ssh.user_ca_key
         # This value must be base64 encoded.
-        ca_password: ${STEP_CA_PASSWORD}
-        provisioner_password: ${STEP_PROVISIONER_PASSWORD}
+        ca_password: '${STEP_CA_PASSWORD}'
+        provisioner_password: '${STEP_PROVISIONER_PASSWORD}'
         x509:
           # intermediate_ca_key contains the contents of your encrypted intermediate CA key
-          intermediate_ca_key: ${STEP_INTERMEDIATE_CA_KEY}
+          intermediate_ca_key: '${STEP_INTERMEDIATE_CA_KEY}'
           # root_ca_key contains the contents of your encrypted root CA key
           # Note that this value can be omitted without impacting the functionality of step-certificates
           # If supplied, this should be encrypted using a unique password that is not used for encrypting
           # the intermediate_ca_key, ssh.host_ca_key or ssh.user_ca_key.
-          root_ca_key: ${STEP_ROOT_CA_KEY}
+          root_ca_key: '${STEP_ROOT_CA_KEY}'
     # resources:
     #   requests:
     #     memory: 100Mi
