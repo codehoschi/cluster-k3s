@@ -23,49 +23,26 @@ spec:
     remediation:
       retries: 3
   values:
-    config:
-      mqtt:
-        server: mqtt://mosquitto
-      serial:
-        port: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
-    securityContext:
-      privileged: true
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: app
-                  operator: In
-                  values:
-                    - zigbee-controller
-    #image:
-    # repository: registry
-    #tag: v0.1.4
-    # persistence:
-    #   enabled: true
-    #   size: 10Gi
-    #   storageClass: nfs-client
-    persistence:
-      config:
-        enabled: true
-        existingClaim: zigbee2mqtt-config
-      data:
-        enabled: true
-        existingClaim: zigbee2mqtt-data
-      usb:
-        enabled: true
-        type: hostPath
-        hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+    # image:
+    #   repository: koenkk/zigbee2mqtt
+    #   tag: 1.19.1
+    #   pullPolicy: IfNotPresent
+
+    # -- environment variables. See [image docs](https://www.zigbee2mqtt.io/information/configuration.html#override-via-environment-variables) for more details.
+    # @default -- See below
     env:
       ZIGBEE2MQTT_DATA: /data
-    additionalVolumeMounts:
-      - name: usb
-        mountPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
-    additionalVolumes:
-      - name: usb
-        hostPath:
-          path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+
+    # -- Configures service settings for the chart. Normally this does not need to be modified.
+    # @default -- See values.yaml
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+
+    # -- Enable and configure ingress settings for the chart under this key.
+    # @default -- See values.yaml
     ingress:
       main:
         enabled: true
@@ -85,6 +62,52 @@ spec:
         #   - hosts:
         #       - 'zigbee2mqtt.${SECRET_DOMAIN}'
         #     secretName: 'zigbee2mqtt-tls'
+
+    securityContext:
+      # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+      privileged: true
+
+    persistence:
+      # config:
+      #   enabled: true
+      #   existingClaim: zigbee2mqtt-config
+      data:
+        enabled: true
+        existingClaim: zigbee2mqtt-data
+      # -- Configure a hostPathMount to mount a USB device in the container.
+      # @default -- See values.yaml
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+
+    # -- Affinity constraint rules to place the Pod on a specific node.
+    # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - zigbee-controller
+
+    # -- zigbee2mqtt configuration settings.
+    # This will be copied into the container's persistent storage at first run only.
+    # Further configuration should be done in the application itself!
+    # See [project documentation](https://www.zigbee2mqtt.io/information/configuration.html) for more information.
+    # @default -- See values.yaml
+    config:
+      mqtt:
+        server: mqtt://mosquitto
+      # USB / Serial settings
+      serial:
+        # Location of your zigbee device
+        port: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+        # Optional: adapter type, not needed unless you are experiencing problems (options: zstack, deconz)
+        adapter: deconz
+
     resources:
       requests:
         cpu: 50m
