@@ -25,7 +25,9 @@ spec:
   values:
     config:
       mqtt:
-        server: http://mosquitto
+        server: mqtt://mosquitto
+      serial:
+        port: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
     securityContext:
       privileged: true
     affinity:
