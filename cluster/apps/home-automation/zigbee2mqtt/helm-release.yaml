@@ -27,7 +27,7 @@ spec:
       mqtt:
         server: mqtt://mosquitto
       serial:
-        port: /dev/ttyACM0
+        port: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
     securityContext:
       privileged: true
     affinity:
@@ -53,11 +53,12 @@ spec:
       data:
         enabled: true
         existingClaim: zigbee2mqtt-data
-    addons:
-      additionalVolumes:
-        - name: usb
-          hostPath:
-            path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+    env:
+      ZIGBEE2MQTT_DATA: /data
     ingress:
       main:
         enabled: true
