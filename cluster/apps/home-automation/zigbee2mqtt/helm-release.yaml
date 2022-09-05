@@ -43,8 +43,9 @@ spec:
       config:
         enabled: true
         existingClaim: zigbee2mqtt-config
-        #size: 1Gi
-        #storageClass: nfs-client
+      data:
+        enabled: true
+        existingClaim: zigbee2mqtt-data
     addons:
       additionalVolumeMounts:
         - name: usb
