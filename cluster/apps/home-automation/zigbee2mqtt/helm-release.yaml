@@ -23,6 +23,8 @@ spec:
     remediation:
       retries: 3
   values:
+    securityContext:
+      privileged: true
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
