@@ -59,6 +59,14 @@ spec:
         hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
     env:
       ZIGBEE2MQTT_DATA: /data
+    addons:
+      # additionalVolumeMounts:
+      # - name: usb
+      #   mountPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+      additionalVolumes:
+        - name: usb
+          hostPath:
+            path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
     ingress:
       main:
         enabled: true
