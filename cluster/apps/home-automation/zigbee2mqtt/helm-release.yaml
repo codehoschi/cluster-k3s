@@ -1,0 +1,76 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: zigbee2mqtt
+  namespace: home-automation
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: zigbee2mqtt
+      version: 9.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - zigbee-controller
+    #image:
+    # repository: registry
+    #tag: v0.1.4
+    # persistence:
+    #   enabled: true
+    #   size: 10Gi
+    #   storageClass: nfs-client
+    persistence:
+      config:
+        enabled: true
+        existingClaim: zigbee2mqtt-config
+        #size: 1Gi
+        #storageClass: nfs-client
+    addons:
+      additionalVolumeMounts:
+        - name: usb
+          mountPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: 'traefik'
+        annotations:
+          # cert-manager.io/cluster-issuer: "letsencrypt-production"
+          # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
+          hajimari.io/enable: 'true'
+          hajimari.io/icon: 'weather-sunset'
+          traefik.ingress.kubernetes.io/router.entrypoints: 'websecure'
+        hosts:
+          - host: 'zigbee2mqtt.${SECRET_DOMAIN}'
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - 'zigbee2mqtt.${SECRET_DOMAIN}'
+        #     secretName: 'zigbee2mqtt-tls'
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        memory: 96Mi
