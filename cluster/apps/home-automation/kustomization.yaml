@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - mosquitto
   - zigbee2mqtt
-  - home-assistant
+  # - home-assistant
