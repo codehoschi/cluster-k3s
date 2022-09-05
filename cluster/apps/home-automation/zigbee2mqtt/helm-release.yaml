@@ -23,6 +23,9 @@ spec:
     remediation:
       retries: 3
   values:
+    config:
+      mqtt:
+        server: http://mosquitto
     securityContext:
       privileged: true
     affinity:
@@ -49,9 +52,10 @@ spec:
         enabled: true
         existingClaim: zigbee2mqtt-data
     addons:
-      additionalVolumeMounts:
+      additionalVolumes:
         - name: usb
-          mountPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+          hostPath:
+            path: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
     ingress:
       main:
         enabled: true
