@@ -23,9 +23,9 @@ spec:
     remediation:
       retries: 3
   values:
-    #image:
-    # repository: registry
-    #tag: v0.1.4
+    image:
+      # repository: registry
+      tag: 3.0.2
     env:
       TZ: 'Europe/Berlin'
     persistence:
