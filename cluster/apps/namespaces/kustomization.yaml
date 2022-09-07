@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - test-ns.yaml
   - home-automation.yaml
-  - monitoring.yaml
