@@ -26,12 +26,6 @@ spec:
     #image:
     # repository: registry
     #tag: v0.1.4
-    env:
-      TZ: 'Europe/Berlin'
-    persistence:
-      config:
-        enabled: true
-        existingClaim: home-assistant-config
     ingress:
       main:
         enabled: true
