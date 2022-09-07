@@ -1,0 +1,101 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 39.11.0
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    #image:
+    # repository: registry
+    #tag: v0.1.4
+    env:
+      TZ: 'Europe/Berlin'
+    persistence:
+      config:
+        enabled: true
+        existingClaim: home-assistant-config
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: 'traefik'
+        annotations:
+          # cert-manager.io/cluster-issuer: "letsencrypt-production"
+          # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
+          hajimari.io/enable: 'true'
+          hajimari.io/icon: 'weather-sunset'
+          traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+        hosts:
+          - host: 'kube-prometheus-stack.${SECRET_DOMAIN}'
+            paths:
+              - path: /
+                pathType: Prefix
+        # tls:
+        #   - hosts:
+        #       - 'mosquitto.${SECRET_DOMAIN}'
+        #     secretName: 'mosquitto-tls'
+    grafana:
+      ingress:
+        main:
+          enabled: true
+          ingressClassName: 'traefik'
+          annotations:
+            # cert-manager.io/cluster-issuer: "letsencrypt-production"
+            # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
+            hajimari.io/enable: 'true'
+            hajimari.io/icon: 'weather-sunset'
+            traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+          hosts:
+            - host: 'grafana.${SECRET_DOMAIN}'
+              paths:
+                - path: /
+                  pathType: Prefix
+    prometheus:
+      ingress:
+        main:
+          enabled: true
+          ingressClassName: 'traefik'
+          annotations:
+            # cert-manager.io/cluster-issuer: "letsencrypt-production"
+            # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
+            hajimari.io/enable: 'true'
+            hajimari.io/icon: 'weather-sunset'
+            traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+          hosts:
+            - host: 'prometheus.${SECRET_DOMAIN}'
+              paths:
+                - path: /
+                  pathType: Prefix
+      prometheusSpec:
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: nfs-client
+              accessModes: ['ReadWriteOnce']
+              resources:
+                requests:
+                  storage: 50Gi
+
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        memory: 96Mi
