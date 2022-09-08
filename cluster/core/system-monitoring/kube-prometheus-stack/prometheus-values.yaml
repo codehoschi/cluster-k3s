@@ -38,7 +38,7 @@ prometheus:
       volumeClaimTemplate:
         metadata:
           name: prometheus
-          namespace: monitoring
+          namespace: system-monitoring
         spec:
           # accessModes:
           #   - ReadWriteOnce

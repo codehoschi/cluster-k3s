@@ -6,3 +6,4 @@ resources:
   - networking.yaml
   - nfs-subdir.yaml
   - system-monitoring.yaml
+  - storage.yaml
