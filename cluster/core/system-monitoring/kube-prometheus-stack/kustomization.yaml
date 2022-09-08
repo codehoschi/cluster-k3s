@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - helm-release.yaml
 
-namespace: monitoring
+namespace: system-monitoring
 configurations:
   - kustomize-config.yaml
 configMapGenerator:
