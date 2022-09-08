@@ -36,12 +36,11 @@ prometheus:
     walCompression: true
     storageSpec:
       volumeClaimTemplate:
-        metadata:
-          name: prometheus
-          namespace: system-monitoring
+        # metadata:
+        #   name: prometheus
+        #   namespace: system-monitoring
         spec:
-          # accessModes:
-          #   - ReadWriteOnce
+          accessModes: ['ReadWriteOnce']
           storageClassName: nfs-client
           resources:
             requests:
