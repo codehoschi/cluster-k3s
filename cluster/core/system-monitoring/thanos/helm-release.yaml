@@ -29,15 +29,15 @@ spec:
       namespace: system-monitoring
     # - name: rook-ceph-cluster
     #   namespace: rook-ceph
-  valuesFrom:
-    - kind: Secret
-      name: 'thanos-objstore-secret'
-      optional: false
+  # valuesFrom:
+  #   - kind: Secret
+  #     name: 'thanos-objstore-secret'
+  #     optional: false
 
   values:
     image:
       tag: 0.28.0
-    # existingObjstoreSecret: &secret thanos-objstore-secret
+    existingObjstoreSecret: &secret thanos-objstore-secret
 
     query:
       enabled: true
