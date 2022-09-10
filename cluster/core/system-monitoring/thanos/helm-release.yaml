@@ -37,15 +37,7 @@ spec:
   values:
     image:
       tag: 0.28.0
-    objstoreConfig:
-      type: s3
-      config:
-        bucket: 'thanos'
-        endpoint: '10.0.10.10:9000'
-        access_key: '${SECRET_MINIO_USER}'
-        secret_key: '${SECRET_MINIO_PASSWORD}'
-        insecure: true
-    # existingObjstoreSecret: &secret thanos-objstore-secret
+    existingObjstoreSecret: &secret thanos-objstore-secret
 
     query:
       enabled: true
@@ -105,6 +97,7 @@ spec:
       enabled: true
       persistence:
         enabled: true
+        storageClass: nfs-client
         size: 5Gi
       # podAnnotations:
       #   configmap.reloader.stakater.com/reload: *secret
