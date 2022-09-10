@@ -36,7 +36,8 @@ spec:
 
   values:
     image:
-      repository: quay.io/thanos/thanos
+      registry: quay.io
+      repository: thanos/thanos
       tag: v0.28.0
     existingObjstoreSecret: &secret thanos-objstore-secret
 
