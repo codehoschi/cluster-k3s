@@ -18,7 +18,7 @@ spec:
   install:
     createNamespace: true
     remediation: # perform remediation when helm install fails
-      retries: 4
+      retries: 3
   upgrade:
     remediation: # perform remediation when helm upgrade fails
       retries: 3
