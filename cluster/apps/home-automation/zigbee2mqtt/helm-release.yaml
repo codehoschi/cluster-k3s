@@ -51,7 +51,7 @@ spec:
           # cert-manager.io/cluster-issuer: "letsencrypt-production"
           # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
           hajimari.io/enable: 'true'
-          hajimari.io/icon: 'weather-sunset'
+          hajimari.io/icon: 'router-wireless-settings'
           traefik.ingress.kubernetes.io/router.entrypoints: 'web'
         hosts:
           - host: 'zigbee2mqtt.${SECRET_DOMAIN}'

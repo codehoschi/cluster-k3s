@@ -40,7 +40,7 @@ spec:
           # cert-manager.io/cluster-issuer: "letsencrypt-production"
           # cert-manager.io/cluster-issuer: 'selfsigned-cluster-issuer'
           hajimari.io/enable: 'true'
-          hajimari.io/icon: 'weather-sunset'
+          hajimari.io/icon: 'home-assistant'
           traefik.ingress.kubernetes.io/router.entrypoints: 'web'
         hosts:
           - host: 'home-assistant.${SECRET_DOMAIN}'
