@@ -37,7 +37,15 @@ spec:
   values:
     image:
       tag: 0.28.0
-    existingObjstoreSecret: &secret thanos-objstore-secret
+    objstoreConfig:
+      type: S3
+      config:
+        bucket: 'thanos'
+        endpoint: '10.0.10.10:9000'
+        access_key: '${SECRET_MINIO_USER}'
+        secret_key: '${SECRET_MINIO_PASSWORD}'
+        insecure: true
+    # existingObjstoreSecret: &secret thanos-objstore-secret
 
     query:
       enabled: true
