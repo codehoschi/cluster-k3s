@@ -38,7 +38,7 @@ spec:
     image:
       tag: 0.28.0
     objstoreConfig:
-      type: S3
+      type: s3
       config:
         bucket: 'thanos'
         endpoint: '10.0.10.10:9000'
