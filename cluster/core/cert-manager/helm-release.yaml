@@ -5,11 +5,11 @@ metadata:
   name: cert-manager
   namespace: cert-manager
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
       chart: cert-manager
-      version: v1.7.1
+      version: v1.9.1
       sourceRef:
         kind: HelmRepository
         name: jetstack-charts
@@ -17,23 +17,66 @@ spec:
   install:
     createNamespace: true
     remediation:
-      retries: 3
+      retries: 5
   upgrade:
     remediation:
-      retries: 3
+      retries: 5
   values:
     installCRDs: false
+    replicaCount: 3
     webhook:
-      enabled: true
+      replicaCount: 3
+    cainjector:
+      replicaCount: 3
     extraArgs:
-      - --v=2
-      - --cluster-resource-namespace=$(POD_NAMESPACE)
-      - --leader-election-namespace=kube-system
       - --dns01-recursive-nameservers=10.0.0.1:53,1.1.1.1:53
-      # - --dns01-recursive-nameservers-only
-    replicaCount: 1
-    podDnsPolicy: 'ClusterFirst'
+      - --dns01-recursive-nameservers-only
+    podDnsPolicy: None
     podDnsConfig:
       nameservers:
         - '10.0.0.1'
         - '1.1.1.1'
+    prometheus:
+      enabled: true
+      servicemonitor:
+        enabled: true
+        prometheusInstance: monitoring
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: cert-manager
+#   namespace: cert-manager
+# spec:
+#   interval: 5m
+#   chart:
+#     spec:
+#       chart: cert-manager
+#       version: v1.7.1
+#       sourceRef:
+#         kind: HelmRepository
+#         name: jetstack-charts
+#         namespace: flux-system
+#   install:
+#     createNamespace: true
+#     remediation:
+#       retries: 3
+#   upgrade:
+#     remediation:
+#       retries: 3
+#   values:
+#     installCRDs: false
+#     webhook:
+#       enabled: true
+#     extraArgs:
+#       - --v=2
+#       - --cluster-resource-namespace=$(POD_NAMESPACE)
+#       - --leader-election-namespace=kube-system
+#       - --dns01-recursive-nameservers=10.0.0.1:53,1.1.1.1:53
+#       # - --dns01-recursive-nameservers-only
+#     replicaCount: 1
+#     podDnsPolicy: 'ClusterFirst'
+#     podDnsConfig:
+#       nameservers:
+#         - '10.0.0.1'
+#         - '1.1.1.1'

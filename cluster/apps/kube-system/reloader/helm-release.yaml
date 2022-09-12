@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: reloader
-      version: v0.0.109
+      version: v0.0.118
       sourceRef:
         kind: HelmRepository
         name: stakater-charts
@@ -17,10 +17,29 @@ spec:
       interval: 5m
   install:
     createNamespace: true
-    remediation:
+    remediation: # perform remediation when helm install fails
       retries: 3
   upgrade:
-    remediation:
+    remediation: # perform remediation when helm upgrade fails
       retries: 3
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
   values:
+    nameOverride: reloader
+
     fullnameOverride: reloader
+
+    reloader:
+      deployment:
+        image:
+          name: ghcr.io/k8s-at-home/reloader
+      podMonitor:
+        enabled: true
+        namespace: kube-system
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        memory: 64M
