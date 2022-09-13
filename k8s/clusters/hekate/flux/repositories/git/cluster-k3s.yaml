@@ -1,0 +1,21 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: cluster-k3s
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: rework
+  url: https://github.com/CodeHoschi/cluster-k3s
+  ignore: |
+    # exclude all
+    /*
+    # include gitops dirs
+    !/k8s/global
+    !/k8s/clusters/hekate
+    !/k8s/manifests
+    # exclude files from gitops dirs
+    /k8s/**/*.md
+    /k8s/**/*.tmpl

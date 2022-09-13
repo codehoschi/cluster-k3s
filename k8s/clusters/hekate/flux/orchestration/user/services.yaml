@@ -1,0 +1,168 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: user-services-hajimari
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: './k8s/manifests/user/services/hajimari'
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-theme-park
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/theme-park'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-paperless
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/paperless'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-obsidian-db
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/obsidian-db'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-language-tools
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/language-tools'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-kopia
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/kopia'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-smtp-relay
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/smtp-relay'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-miniflux
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/miniflux'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-minio
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/minio'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-excalidraw
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/excalidraw'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-radicale
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/radicale'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: user-services-filebrowser
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   path: './k8s/manifests/user/services/filebrowser'
+#   prune: true
+#   wait: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: cluster-k3s
