@@ -29,8 +29,8 @@ tasks:
   git-check-yaml:
     desc: Check yaml for kustomize/kube errors
     cmds:
-      - git diff --name-only origin/main.. | grep --color kustomization.yaml | sed 's/kustomization.yaml//' | xargs -I{} kustomize build {}
-      - git diff --name-only origin/main.. | grep --color .yaml | xargs cat | kubectl apply -f - --dry-run=server
+      - git diff --name-only rework | grep --color kustomization.yaml | sed 's/kustomization.yaml//' | xargs -I{} kustomize build {}
+      - git diff --name-only rework | grep --color .yaml | xargs cat | kubectl apply -f - --dry-run=server
 
   bootstrap-sops:
     desc: Bootstrap cluster
@@ -41,12 +41,12 @@ tasks:
   bootstrap-flux:
     desc: Bootstrap flux (as per version in manifest)
     cmds:
-      - yq '.spec.ref.tag' cluster/flux/flux-system/flux-install.yaml | xargs -I{} flux install --version={} --export | kubectl apply -f -
+      - yq '.spec.ref.tag' k8s/global/flux/repositories/git/flux.yaml | xargs -I{} flux install --version={} --export | kubectl apply -f -
 
   bootstrap-cluster:
     desc: Bootstrap Cluster
     cmds:
-      - kubectl apply -k k8s/clusters/hegira/
+      - kubectl apply -k k8s/clusters/hekate/
 
   k10-password:
     desc: Retrieve the k10 passphrase
@@ -115,8 +115,8 @@ tasks:
     desc: Build talos configs
     cmds:
       - git stash && git pull && git stash pop
-      - python k8s/talos/buildClusterConfig.py  --variables-file k8s/talos/hegira/variables.sops.yaml k8s/talos/hegira/config.yaml
-      - find k8s/talos/hegira/machineConfigs/ -maxdepth 1 -type f -exec talosctl validate -m metal -c {} \;
+      - python k8s/talos/buildClusterConfig.py  --variables-file k8s/talos/hekate/variables.sops.yaml k8s/talos/hekate/config.yaml
+      - find k8s/talos/hekate/machineConfigs/ -maxdepth 1 -type f -exec talosctl validate -m metal -c {} \;
 
   delete-failed-pods:
     desc: Deletes failed pods
