@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: grafana
-  namespace: monitoring-system
+  namespace: system-monitoring
 spec:
   interval: 5m
   chart:
@@ -26,7 +26,7 @@ spec:
     cleanupOnFail: true
   dependsOn:
     - name: kube-prometheus-stack
-      namespace: monitoring-system
+      namespace: system-monitoring
     - name: thanos
       namespace: system-monitoring
   values:
@@ -282,7 +282,7 @@ spec:
     ingress:
       enabled: true
       annotations:
-        kubernetes.io/ingress.class: 'traefik'
+        ingressClassName: 'nginx'
         # cert-manager.io/cluster-issuer: ${CLUSTER_CERT}
         # external-dns/is-public: "false"
         hajimari.io/enable: 'true'
