@@ -32,6 +32,11 @@ spec:
     - name: nfs-provisioner
       namespace: storage
   values:
+    image:
+      registry: quay.io
+      repository: thanos/thanos
+      tag: v0.28.0
+
     existingObjstoreSecret: &secret thanos-objstore-secret
 
     query:
