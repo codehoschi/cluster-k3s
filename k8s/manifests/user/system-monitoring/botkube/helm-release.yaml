@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: botkube
+      chart: botkube-charts
       version: v0.13.0
       sourceRef:
         kind: HelmRepository
