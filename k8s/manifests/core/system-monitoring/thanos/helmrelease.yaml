@@ -89,7 +89,7 @@ spec:
           cpu: 15m
           memory: 183M
         limits:
-          memory: 11G
+          memory: 1G
 
     storegateway:
       enabled: true
@@ -104,7 +104,7 @@ spec:
           cpu: 15m
           memory: 183M
         limits:
-          memory: 11G
+          memory: 1G
 
     ruler:
       enabled: false
