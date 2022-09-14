@@ -54,6 +54,9 @@ spec:
         # tls:
         #   - hosts:
         #       - *host
+    securityContext:
+      # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+      privileged: true
 
     persistence:
       config:
