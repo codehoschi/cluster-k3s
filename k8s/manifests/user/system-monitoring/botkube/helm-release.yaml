@@ -9,10 +9,10 @@ spec:
   chart:
     spec:
       chart: botkube-charts
-      version: v0.13.0
+      version: v0.12.4
       sourceRef:
-        kind: GitRepository
-        name: botkube-charts
+        kind: HelmRepository
+        name: infracloudio-charts
         namespace: flux-system
       interval: 5m
   install:

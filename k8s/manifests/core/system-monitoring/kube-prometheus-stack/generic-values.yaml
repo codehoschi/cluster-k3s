@@ -98,10 +98,11 @@ prometheus-node-exporter:
 
   resources:
     requests:
-      cpu: 23m
+      cpu: 22m
       memory: 64M
-    # limits:
-    #   memory: 64M
+    limits:
+      cpu: 120m
+      memory: 82M
   tolerations:
     - effect: 'NoExecute'
       operator: 'Exists'

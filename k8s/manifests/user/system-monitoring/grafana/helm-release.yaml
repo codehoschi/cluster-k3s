@@ -303,10 +303,11 @@ spec:
 
     resources:
       requests:
-        cpu: 34m
+        cpu: 22m
         memory: 94M
       limits:
-        memory: 213M
+        cpu: 182m
+        memory: 349M
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: 'grafana'

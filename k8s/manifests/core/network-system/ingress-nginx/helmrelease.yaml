@@ -95,10 +95,11 @@ spec:
 
       resources:
         requests:
-          memory: 250Mi
-          cpu: 20m
+          cpu: 22m
+          memory: 203M
         limits:
-          memory: 1000Mi
+          cpu: 121m
+          memory: 706M
 
   valuesFrom:
     # Cloudflare Networks

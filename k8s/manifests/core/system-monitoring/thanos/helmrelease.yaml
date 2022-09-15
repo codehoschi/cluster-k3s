@@ -66,6 +66,13 @@ spec:
 
     queryFrontend:
       enabled: false
+      resources:
+        requests:
+          cpu: 15m
+          memory: 64M
+        limits:
+          cpu: 38m
+          memory: 172M
 
     bucketweb:
       enabled: true
@@ -76,7 +83,8 @@ spec:
           cpu: 15m
           memory: 64M
         limits:
-          memory: 83M
+          cpu: 38m
+          memory: 126M
 
     compactor:
       enabled: true
@@ -87,9 +95,10 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 183M
+          memory: 163M
         limits:
-          memory: 1G
+          cpu: 38m
+          memory: 566M
 
     storegateway:
       enabled: true
@@ -102,9 +111,10 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 183M
+          memory: 64M
         limits:
-          memory: 1G
+          cpu: 38m
+          memory: 221M
 
     ruler:
       enabled: false

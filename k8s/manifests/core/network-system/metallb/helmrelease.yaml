@@ -37,3 +37,11 @@ spec:
     existingConfigMap: 'metallb-config'
     crds:
       enabled: true
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 79m
+        memory: 172M

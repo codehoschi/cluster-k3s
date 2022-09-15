@@ -41,9 +41,10 @@ prometheus:
               storage: 10Gi
     resources:
       requests:
-        cpu: 350m
+        cpu: 294m
         # memory: 4744M
-        # limits:
+      limits:
+        cpu: 2161m
         # memory: 4744M
     thanos:
       image: quay.io/thanos/thanos:v0.28.0
