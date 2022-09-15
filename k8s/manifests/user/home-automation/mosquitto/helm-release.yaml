@@ -32,9 +32,9 @@ spec:
         existingClaim: mosquitto-data-v1
 
     resources:
-      requests:
-        cpu: 15m
-        memory: 64Mi
-      limits:
-        cpu: 38m
-        memory: 64Mi
+      # requests:
+      #   cpu: 15m
+      #   memory: 64Mi
+      # limits:
+      #   cpu: 38m
+      #   memory: 64Mi

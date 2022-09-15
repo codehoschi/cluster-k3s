@@ -302,12 +302,12 @@ spec:
       enabled: false
 
     resources:
-      requests:
-        cpu: 22m
-        memory: 94M
-      limits:
-        cpu: 182m
-        # memory: 349M
+      # requests:
+      #   cpu: 22m
+      #   memory: 94M
+      # limits:
+      #   cpu: 182m
+      #   # memory: 349M
 
     podAnnotations:
       configmap.reloader.stakater.com/reload: 'grafana'
