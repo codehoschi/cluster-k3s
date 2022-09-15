@@ -44,9 +44,9 @@ spec:
       # pathPattern: '${.PVC.namespace}-${.PVC.name}' # flux cannot resolve variable error
 
     resources:
-      # requests:
-      #   cpu: 15m
-      #   memory: 64M
-      # limits:
-      #   cpu: 38m
-      #   memory: 82M
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 15m
+        memory: 64M

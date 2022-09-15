@@ -39,13 +39,13 @@ prometheus:
           resources:
             requests:
               storage: 10Gi
-    # resources:
-    #   requests:
-    #     cpu: 294m
-    #     # memory: 4744M
-    #   limits:
-    #     cpu: 2161m
-    #     # memory: 4744M
+    resources:
+      requests:
+        cpu: 716m
+        memory: 1837M
+      limits:
+        cpu: 716m
+        memory: 1837M
     thanos:
       image: quay.io/thanos/thanos:v0.28.0
       # renovate: datasource=docker depName=quay.io/thanos/thanos

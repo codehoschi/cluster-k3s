@@ -88,9 +88,9 @@ spec:
               includingInitContainers: true
 
     resources:
-      # requests:
-      #   cpu: 15m
-      #   memory: 64M
-      # limits:
-      #   cpu: 38m
-      #   memory: 127M
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 15m
+        memory: 64M

@@ -38,9 +38,9 @@ spec:
         namespace: kube-system
 
     resources:
-      # requests:
-      #   cpu: 15m
-      #   memory: 64M
-      # limits:
-      #   cpu: 38m
-      #   memory: 175M
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 15m
+        memory: 64M
