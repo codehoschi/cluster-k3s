@@ -92,9 +92,9 @@ spec:
         adapter: deconz
 
     resources:
-      # requests:
-      #   cpu: 34m
-      #   memory: 93M
-      # limits:
-      #   cpu: 282m
-      #   memory: 732M
+      requests:
+        cpu: 35m
+        memory: 127M
+      limits:
+        cpu: 35m
+        memory: 127M

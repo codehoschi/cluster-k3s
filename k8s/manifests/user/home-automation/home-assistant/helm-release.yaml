@@ -110,9 +110,9 @@ spec:
         enabled: false
 
     resources:
-      # requests:
-      #   cpu: 10m
-      #   memory: 246M
-      # limits:
-      #   cpu: 124m
-      #   memory: 1341M
+      requests:
+        cpu: 11m
+        memory: 273M
+      limits:
+        cpu: 11m
+        memory: 273M
