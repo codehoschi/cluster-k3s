@@ -31,22 +31,22 @@ spec:
   values:
     controller:
       resources:
-        requests:
-          cpu: 15m
-          memory: 64M
-        limits:
-          cpu: 80m
-          memory: 127M
+        # requests:
+        #   cpu: 15m
+        #   memory: 64M
+        # limits:
+        #   cpu: 80m
+        #   memory: 127M
 
     dashboard:
       replicaCount: 1
       resources:
-        requests:
-          cpu: 15m
-          memory: 64M
-        limits:
-          cpu: 38m
-          memory: 127M
+        # requests:
+        #   cpu: 15m
+        #   memory: 64M
+        # limits:
+        #   cpu: 38m
+        #   memory: 127M
 
       ingress:
         enabled: true
