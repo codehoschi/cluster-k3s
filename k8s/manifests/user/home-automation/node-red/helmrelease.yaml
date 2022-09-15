@@ -63,10 +63,10 @@ spec:
         existingClaim: node-red-config-v1
         mountPath: '/data'
 
-    resources:
-      requests:
-        cpu: 15m
-        memory: 110M
-      limits:
-        cpu: 38m
-        memory: 385M
+    # resources:
+    #   requests:
+    #     cpu: 15m
+    #     memory: 110M
+    #   limits:
+    #     cpu: 38m
+    #     memory: 385M
