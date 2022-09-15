@@ -29,10 +29,10 @@ spec:
     image:
       repository: k8s.gcr.io/metrics-server/metrics-server
       tag: v0.6.1
-    resources:
-      requests:
-        cpu: 23m
-        memory: 64M
-      limits:
-        cpu: 23m
-        memory: 64M
+    # resources:
+    #   requests:
+    #     cpu: 23m
+    #     memory: 64M
+    #   limits:
+    #     cpu: 23m
+    #     memory: 64M

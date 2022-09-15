@@ -93,13 +93,13 @@ spec:
       podAnnotations:
         configmap.reloader.stakater.com/reload: 'cloudflare-proxied-networks'
 
-      resources:
-        requests:
-          cpu: 35m
-          memory: 226M
-        limits:
-          cpu: 35m
-          memory: 226M
+      # resources:
+      #   requests:
+      #     cpu: 35m
+      #     memory: 226M
+      #   limits:
+      #     cpu: 35m
+      #     memory: 226M
 
   valuesFrom:
     # Cloudflare Networks
