@@ -38,18 +38,18 @@ spec:
     #   - secretRef:
     #       name: *app
 
-    service:
-      main:
-        ports:
-          http:
-            port: 8123
+    # service:
+    #   main:
+    #     ports:
+    #       http:
+    #         port: 8123
 
     ingress:
       main:
         enabled: true
         ingressClassName: 'nginx'
-        annotations:
-          external-dns.home.arpa/enabled: 'true'
+        # annotations:
+        #   external-dns.home.arpa/enabled: 'true'
         hosts:
           - host: &host 'hass.${INTERNAL_DOMAIN}'
             paths:
