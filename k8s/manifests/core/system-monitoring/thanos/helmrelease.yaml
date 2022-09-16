@@ -58,8 +58,9 @@ spec:
       ingress:
         enabled: true
         hostname: 'thanos-cluster.${INTERNAL_DOMAIN}'
-        ingressClassName: 'nginx'
+        ingressClassName: 'traefik'
         annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: 'web'
           hajimari.io/enable: 'true'
           hajimari.io/icon: 'archive-clock'
         # tls: true

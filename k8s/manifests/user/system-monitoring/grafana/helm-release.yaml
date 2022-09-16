@@ -282,7 +282,8 @@ spec:
     ingress:
       enabled: true
       annotations:
-        ingressClassName: 'nginx'
+        ingressClassName: 'traefik'
+        traefik.ingress.kubernetes.io/router.entrypoints: 'web'
         # cert-manager.io/cluster-issuer: ${CLUSTER_CERT}
         # external-dns/is-public: "false"
         hajimari.io/enable: 'true'

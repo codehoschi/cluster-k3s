@@ -103,8 +103,9 @@ spec:
         rollOutPods: true
         ingress:
           enabled: true
-          ingressClassName: 'nginx'
+          ingressClassName: 'traefik'
           annotations:
+            traefik.ingress.kubernetes.io/router.entrypoints: 'web'
             hajimari.io/enable: 'true'
             hajimari.io/appName: hubble
             hajimari.io/icon: lan

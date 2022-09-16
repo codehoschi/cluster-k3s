@@ -3,8 +3,9 @@ prometheus:
   ingress:
     enabled: true
     pathType: Prefix
-    ingressClassName: 'nginx'
+    ingressClassName: 'traefik'
     annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: 'web'
       hajimari.io/enable: 'true'
       hajimari.io/icon: database-clock
       hajimari.io/appName: Prometheus

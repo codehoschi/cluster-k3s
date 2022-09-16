@@ -47,8 +47,9 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: 'nginx'
-        # annotations:
+        ingressClassName: 'traefik'
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: 'web'
         #   external-dns.home.arpa/enabled: 'true'
         hosts:
           - host: &host 'hass.${INTERNAL_DOMAIN}'
@@ -88,7 +89,9 @@ spec:
           - '/config/.vscode'
         ingress:
           enabled: true
-          ingressClassName: 'nginx'
+          ingressClassName: 'traefik'
+          annotations:
+            traefik.ingress.kubernetes.io/router.entrypoints: 'web'
           hosts:
             - host: &host 'hass-code.${INTERNAL_DOMAIN}'
               paths:
