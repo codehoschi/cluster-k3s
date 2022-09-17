@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: metallb
+      chart: metallb-charts
       version: 0.13.5
       sourceRef:
         kind: HelmRepository
@@ -19,9 +19,16 @@ spec:
     timeout: 10m
     recreate: true
     cleanupOnFail: true
-  dependsOn:
-    - name: kube-prometheus-stack
-      namespace: system-monitoring
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  # dependsOn:
+  #   - name: kube-prometheus-stack
+  #     namespace: system-monitoring
   values:
     prometheus:
       namespace: system-monitoring
