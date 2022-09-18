@@ -49,8 +49,8 @@ metadata:
   name: core-network-system-ingress-traefik
   namespace: flux-system
 spec:
-  # dependsOn:
-  #   - name: core-network-system-metallb
+  dependsOn:
+    - name: core-network-system-metallb
   interval: 5m
   path: './k8s/manifests/core/network-system/traefik'
   prune: true
