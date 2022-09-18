@@ -13,7 +13,7 @@ spec:
       version: 0.13.5
       sourceRef:
         kind: HelmRepository
-        name: metallb
+        name: metallb/metallb
         namespace: flux-system
       interval: 10m
   rollback:
