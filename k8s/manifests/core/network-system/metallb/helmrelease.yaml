@@ -22,10 +22,10 @@ spec:
   install:
     createNamespace: true
     remediation:
-      retries: 3
+      retries: 4
   upgrade:
     remediation:
-      retries: 3
+      retries: 4
   # dependsOn:
   #   - name: kube-prometheus-stack
   #     namespace: system-monitoring
