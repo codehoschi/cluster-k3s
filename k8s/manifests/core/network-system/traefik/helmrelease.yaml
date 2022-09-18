@@ -86,10 +86,10 @@ spec:
     experimental:
       plugins:
         enabled: false
-    resources:
-      requests:
-        cpu: 100m
-        memory: 50M
-      limits:
-        cpu: 300m
-        memory: 150M
+    # resources:
+    #   requests:
+    #     cpu: 100m
+    #     memory: 50M
+    #   limits:
+    #     cpu: 300m
+    #     memory: 150M
