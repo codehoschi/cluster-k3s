@@ -23,10 +23,10 @@ spec:
   install:
     createNamespace: true
     remediation:
-      retries: 4
+      retries: 5
   upgrade:
     remediation:
-      retries: 4
+      retries: 5
   # dependsOn:
   #   - name: kube-prometheus-stack
   #     namespace: system-monitoring
@@ -46,10 +46,10 @@ spec:
     crds:
       enabled: true
 
-    resources:
-      requests:
-        cpu: 15m
-        memory: 64M
-      limits:
-        cpu: 15m
-        memory: 64M
+    # resources:
+    #   requests:
+    #     cpu: 15m
+    #     memory: 64M
+    #   limits:
+    #     cpu: 15m
+    #     memory: 64M
