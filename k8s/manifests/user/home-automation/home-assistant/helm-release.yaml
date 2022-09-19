@@ -38,11 +38,11 @@ spec:
     #   - secretRef:
     #       name: *app
 
-    # service:
-    #   main:
-    #     ports:
-    #       http:
-    #         port: 8123
+    service:
+      main:
+        ports:
+          http:
+            port: 8123
 
     ingress:
       main:
