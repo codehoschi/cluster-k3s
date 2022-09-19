@@ -5,4 +5,3 @@ resources:
   - ../../../../../global/flux/repositories/git
   - cluster-k3s.yaml
   - external-snapshotter.yaml
-  - botkube-charts.yaml

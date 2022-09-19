@@ -15,7 +15,7 @@ resources:
   - ./grafana-charts.yaml
   - ./hajimari-charts.yaml
   - ./infracloudio-charts.yaml
-  # - ./botkube-charts.yaml
+  - ./botkube-charts.yaml
   - ./ingress-nginx-charts.yaml
   - ./jetstack-charts.yaml
   - ./k8s-at-home-charts.yaml
