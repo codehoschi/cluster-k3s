@@ -29,13 +29,13 @@ spec:
     recommender:
       enabled: true
 
-      # resources:
-      #   requests:
-      #     cpu: 15m
-      #     memory: 64M
-      #   limits:
-      #     cpu: 15m
-      #     memory: 64M
+      resources:
+        requests:
+          cpu: 15m
+          memory: 64M
+        limits:
+          cpu: 15m
+          memory: 64M
 
       extraArgs:
         pod-recommendation-min-cpu-millicores: 15
@@ -49,10 +49,10 @@ spec:
     admissionController:
       enabled: false
 
-    resources:
-      requests:
-        cpu: 15m
-        memory: 64M
-      limits:
-        cpu: 15m
-        memory: 64M
+    # resources:
+    #   requests:
+    #     cpu: 15m
+    #     memory: 64M
+    #   limits:
+    #     cpu: 15m
+    #     memory: 64M

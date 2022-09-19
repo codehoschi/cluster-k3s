@@ -272,11 +272,12 @@ spec:
             - error
 
     resources:
-      # requests:
-      #   cpu: 23m
-      #   memory: 204M
-      # limits:
-      #   memory: 326M
+      requests:
+        cpu: 23m
+        memory: 64M
+      limits:
+        cpu: 23m
+        memory: 64M
 
   valuesFrom:
     - kind: Secret
