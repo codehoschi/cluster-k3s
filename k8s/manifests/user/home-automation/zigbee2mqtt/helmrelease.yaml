@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: ghcr.io/koenkk/zigbee2mqtt
-      tag: latest-dev
+      tag: 1.27.2
     # image:
     #   repository: ghcr.io/koenkk/zigbee2mqtt
     #   tag: ghcr.io/koenkk/zigbee2mqtt:1.27.2@sha256:89e3e23ddd4d1a9ee3897b33ca6b35c94b0f2b874f659cda79cd61e9dcb51d21
