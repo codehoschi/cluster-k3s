@@ -29,7 +29,7 @@ spec:
       namespace: home-automation
   values:
     image:
-      repository: ghcr.io/koenkk/zigbee2mqtt
+      # repository: ghcr.io/koenkk/zigbee2mqtt
       tag: 1.27.2
     # image:
     #   repository: ghcr.io/koenkk/zigbee2mqtt
