@@ -10,7 +10,7 @@ spec:
     spec:
       chart: app-template
       # chart: zigbee2mqtt
-      version: 0.1.1
+      version: 0.2.1
       # version: 9.4.2
       sourceRef:
         kind: HelmRepository
@@ -73,7 +73,8 @@ spec:
       usb:
         enabled: true
         type: hostPath
-        hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
+        hostPath: '/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00'
+        mountPath: '/dev/ttyACM0'
 
     affinity:
       nodeAffinity:
