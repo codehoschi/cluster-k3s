@@ -70,6 +70,15 @@ spec:
       config:
         enabled: true
         existingClaim: home-assistant-config-v1
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: '/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00'
+        mountPath: '/dev/ttyACM0'
+
+    securityContext:
+      # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+      privileged: true
 
     addons:
       codeserver:
