@@ -39,28 +39,27 @@ spec:
       TZ: '${TZ}'
       ZIGBEE2MQTT_DATA: /data
 
-    service:
-      main:
-        ports:
-          http:
-            port: 8080
+    # service:
+    #   main:
+    #     ports:
+    #       http:
+    #         port: 8080
 
     ingress:
-      main:
-        enabled: true
-        ingressClassName: 'traefik'
-        annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: 'web'
-          hajimari.io/enable: 'true'
-          hajimari.io/icon: 'router-wireless-settings'
-        hosts:
-          - host: &host '{{ .Release.Name }}.${INTERNAL_DOMAIN}'
-            paths:
-              - path: /
-                pathType: Prefix
-        # tls:
-        #   - hosts:
-        #       - *host
+      enabled: true
+      ingressClassName: 'traefik'
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+        hajimari.io/enable: 'true'
+        hajimari.io/icon: 'router-wireless-settings'
+      hosts:
+        - host: &host '{{ .Release.Name }}.${INTERNAL_DOMAIN}'
+          paths:
+            - path: /
+              pathType: Prefix
+      # tls:
+      #   - hosts:
+      #       - *host
     securityContext:
       # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
       privileged: true
