@@ -34,6 +34,6 @@ resources:
   - ./vector-charts.yaml
   - ./vmware-charts.yaml
   - ./vmware-tanzu-charts.yaml
-  - ./weaveworks-kured-charts.yaml
+  # - ./weaveworks-kured-charts.yaml
   - ./bjw-s-charts.yaml
   - ./cloudnative-pg.yaml
