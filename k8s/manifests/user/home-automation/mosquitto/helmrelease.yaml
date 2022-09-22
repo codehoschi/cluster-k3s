@@ -31,6 +31,16 @@ spec:
         enabled: true
         existingClaim: mosquitto-data-v1
 
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - zigbee-controller
+
     resources:
       requests:
         cpu: 15m
