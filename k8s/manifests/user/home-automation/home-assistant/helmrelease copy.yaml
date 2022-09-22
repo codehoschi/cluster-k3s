@@ -8,11 +8,11 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: home-assistant
-      version: 13.4.2
+      chart: app-template
+      version: 0.2.1
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home-charts
+        name: bjw-s-charts
         namespace: flux-system
   install:
     createNamespace: true
@@ -28,8 +28,8 @@ spec:
       namespace: home-automation
   values:
     image:
-      # repository: ghcr.io/onedr0p/home-assistant
-      tag: 2022.9.5
+      repository: ghcr.io/onedr0p/home-assistant
+      tag: 2022.9.2@sha256:f352e0d02860ed5aa73cbbf0a4b63728c9bf42a5367f9639dbaddf62f143289f
 
     env:
       TZ: '${TZ}'
@@ -61,22 +61,25 @@ spec:
         #       - *host
 
     podSecurityContext:
-      privileged: true
-      # runAsUser: 568
-      # runAsGroup: 568
-      # fsGroup: 568
-      # fsGroupChangePolicy: 'OnRootMismatch'
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: 'OnRootMismatch'
 
     persistence:
       config:
         enabled: true
-        existingClaim: home-assistant-config-v2
+        existingClaim: home-assistant-config-v1
       usb:
         enabled: true
         type: hostPath
         hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
         # mountPath: /dev/ttyACM0
         # hostPathType: CharDevice
+
+    securityContext:
+      # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+      privileged: true
 
     addons:
       codeserver:
@@ -119,9 +122,9 @@ spec:
       startup:
         enabled: false
 
-    # resources:
-    #   requests:
-    #     cpu: 50m
-    #     memory: 64Mi
-    # limits:
-    # memory: 96Mi
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      # limits:
+      # memory: 96Mi

@@ -15,3 +15,20 @@ spec:
   resources:
     requests:
       storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant-config-v2
+  namespace: home-automation
+  labels:
+    app.kubernetes.io/name: &name home-assistant
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: 'true'
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 5Gi
