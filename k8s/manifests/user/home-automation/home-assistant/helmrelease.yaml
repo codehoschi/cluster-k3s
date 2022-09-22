@@ -73,9 +73,9 @@ spec:
       usb:
         enabled: true
         type: hostPath
-        hostPathType: CharDevice
         hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2654252-if00
-        mountPath: /dev/ttyACM0
+        # mountPath: /dev/ttyACM0
+        # hostPathType: CharDevice
 
     securityContext:
       # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
