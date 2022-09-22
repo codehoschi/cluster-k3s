@@ -96,38 +96,38 @@ spec:
     #     # Optional: adapter type, not needed unless you are experiencing problems (options: zstack, deconz)
     #     adapter: deconz
 
-    # addons:
-    #   codeserver:
-    #     enabled: true
-    #     image:
-    #       repository: ghcr.io/coder/code-server
-    #       tag: 4.7.0
-    #     env:
-    #       TZ: '${TZ}'
-    #     workingDir: '/config'
-    #     args:
-    #       - --auth
-    #       - 'none'
-    #       - --user-data-dir
-    #       - '/config/.vscode'
-    #       - --extensions-dir
-    #       - '/config/.vscode'
-    #     ingress:
-    #       enabled: true
-    #       ingressClassName: 'traefik'
-    #       annotations:
-    #         traefik.ingress.kubernetes.io/router.entrypoints: 'web'
-    #       hosts:
-    #         - host: &host 'zigbee2mqtt-code.${INTERNAL_DOMAIN}'
-    #           paths:
-    #             - path: /
-    #               pathType: Prefix
-    #       # tls:
-    #       #   - hosts:
-    #       #       - *host
-    #     volumeMounts:
-    #       - name: config
-    #         mountPath: /config
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: ghcr.io/coder/code-server
+          tag: 4.7.0
+        env:
+          TZ: '${TZ}'
+        workingDir: '/config'
+        args:
+          - --auth
+          - 'none'
+          - --user-data-dir
+          - '/config/.vscode'
+          - --extensions-dir
+          - '/config/.vscode'
+        ingress:
+          enabled: true
+          ingressClassName: 'traefik'
+          annotations:
+            traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+          hosts:
+            - host: &host 'zigbee2mqtt-code.${INTERNAL_DOMAIN}'
+              paths:
+                - path: /
+                  pathType: Prefix
+          # tls:
+          #   - hosts:
+          #       - *host
+        volumeMounts:
+          - name: config
+            mountPath: /config
 
     probes:
       liveness:
