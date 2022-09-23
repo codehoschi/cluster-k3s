@@ -26,8 +26,8 @@ spec:
     image:
       repository: public.ecr.aws/emqx/emqx
 
-    # replicaCount: 3
-    # recreatePods: true
+    replicaCount: 3
+    recreatePods: true
 
     emqxConfig:
       EMQX_ALLOW_ANONYMOUS: 'false'
@@ -82,15 +82,15 @@ spec:
       storageClass: nfs-client
       size: 100Mi
 
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: app
-                  operator: In
-                  values:
-                    - zigbee-controller
+    # affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #         - matchExpressions:
+    #             - key: app
+    #               operator: In
+    #               values:
+    #                 - zigbee-controller
 
     resources:
       requests:
