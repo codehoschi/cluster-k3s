@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: emqx/emqx
+      chart: emqx
       version: 5.0.3
       sourceRef:
         kind: HelmRepository
@@ -24,7 +24,7 @@ spec:
       retries: 3
   values:
     image:
-      # repository: public.ecr.aws/emqx/emqx
+      repository: public.ecr.aws/emqx/emqx
 
     # replicaCount: 3
     # recreatePods: true
