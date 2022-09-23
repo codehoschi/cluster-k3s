@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: emqx
+      chart: emqx/emqx
       version: 5.0.3
       sourceRef:
         kind: HelmRepository
