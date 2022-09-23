@@ -31,25 +31,25 @@ spec:
         enabled: true
         existingClaim: mosquitto-data-v1
 
-    service:
-      # enabled: true
-      type: LoadBalancer
-      spec:
-        loadBalancerIP: '${LB_MQTT}'
+    # service:
+    #   # enabled: true
+    #   type: LoadBalancer
+    #   spec:
+    #     loadBalancerIP: '${LB_MQTT}'
 
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: 'traefik'
-        annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: 'web'
-          hajimari.io/enable: 'true'
-          hajimari.io/icon: 'resistor-nodes'
-        hosts:
-          - host: &host '{{ .Release.Name }}.${INTERNAL_DOMAIN}'
-            paths:
-              - path: /
-                pathType: Prefix
+    # ingress:
+    #   main:
+    #     enabled: true
+    #     ingressClassName: 'traefik'
+    #     annotations:
+    #       traefik.ingress.kubernetes.io/router.entrypoints: 'web'
+    #       hajimari.io/enable: 'true'
+    #       hajimari.io/icon: 'resistor-nodes'
+    #     hosts:
+    #       - host: &host '{{ .Release.Name }}.${INTERNAL_DOMAIN}'
+    #         paths:
+    #           - path: /
+    #             pathType: Prefix
 
     affinity:
       nodeAffinity:
