@@ -58,7 +58,7 @@ spec:
     service:
       type: LoadBalancer
       loadBalancerIP: '${LB_EMQX}'
-      # externalTrafficPolicy: Local
+      externalTrafficPolicy: Local
 
     ingress:
       main:
